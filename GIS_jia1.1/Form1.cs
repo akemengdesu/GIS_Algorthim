@@ -76,5 +76,15 @@ namespace GIS_jia1._1
         {
             _controller.CloseCurrentDataset();
         }
+
+        private void 行首解码ToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            _controller.ExecuteRowFirstDecoding();
+        }
+
+        private void 列首解码ToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            _controller.ExecuteColumnFirstDecoding();
+        }
     }
 }

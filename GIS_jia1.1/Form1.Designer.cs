@@ -40,8 +40,11 @@
             pNGToolStripMenuItem = new ToolStripMenuItem();
             iMGToolStripMenuItem = new ToolStripMenuItem();
             差分编码ToolStripMenuItem = new ToolStripMenuItem();
-            panel1 = new Doublebuffer();
+            差分解码ToolStripMenuItem = new ToolStripMenuItem();
+            行首解码ToolStripMenuItem = new ToolStripMenuItem();
+            列首解码ToolStripMenuItem = new ToolStripMenuItem();
             removeToolStripMenuItem = new ToolStripMenuItem();
+            panel1 = new Doublebuffer();
             menuStrip1.SuspendLayout();
             contextMenuStrip1.SuspendLayout();
             SuspendLayout();
@@ -83,15 +86,15 @@
             // 
             // contextMenuStrip1
             // 
-            contextMenuStrip1.Items.AddRange(new ToolStripItem[] { 另存为ToolStripMenuItem, 差分编码ToolStripMenuItem, removeToolStripMenuItem });
+            contextMenuStrip1.Items.AddRange(new ToolStripItem[] { 另存为ToolStripMenuItem, 差分编码ToolStripMenuItem, 差分解码ToolStripMenuItem, removeToolStripMenuItem });
             contextMenuStrip1.Name = "contextMenuStrip1";
-            contextMenuStrip1.Size = new Size(181, 92);
+            contextMenuStrip1.Size = new Size(125, 92);
             // 
             // 另存为ToolStripMenuItem
             // 
             另存为ToolStripMenuItem.DropDownItems.AddRange(new ToolStripItem[] { geoTIFFToolStripMenuItem, jEPGToolStripMenuItem, pNGToolStripMenuItem, iMGToolStripMenuItem });
             另存为ToolStripMenuItem.Name = "另存为ToolStripMenuItem";
-            另存为ToolStripMenuItem.Size = new Size(180, 22);
+            另存为ToolStripMenuItem.Size = new Size(124, 22);
             另存为ToolStripMenuItem.Text = "另存为";
             // 
             // geoTIFFToolStripMenuItem
@@ -125,9 +128,37 @@
             // 差分编码ToolStripMenuItem
             // 
             差分编码ToolStripMenuItem.Name = "差分编码ToolStripMenuItem";
-            差分编码ToolStripMenuItem.Size = new Size(180, 22);
+            差分编码ToolStripMenuItem.Size = new Size(124, 22);
             差分编码ToolStripMenuItem.Text = "差分编码";
             差分编码ToolStripMenuItem.Click += 差分编码ToolStripMenuItem_Click;
+            // 
+            // 差分解码ToolStripMenuItem
+            // 
+            差分解码ToolStripMenuItem.DropDownItems.AddRange(new ToolStripItem[] { 行首解码ToolStripMenuItem, 列首解码ToolStripMenuItem });
+            差分解码ToolStripMenuItem.Name = "差分解码ToolStripMenuItem";
+            差分解码ToolStripMenuItem.Size = new Size(124, 22);
+            差分解码ToolStripMenuItem.Text = "差分解码";
+            // 
+            // 行首解码ToolStripMenuItem
+            // 
+            行首解码ToolStripMenuItem.Name = "行首解码ToolStripMenuItem";
+            行首解码ToolStripMenuItem.Size = new Size(180, 22);
+            行首解码ToolStripMenuItem.Text = "行首解码";
+            行首解码ToolStripMenuItem.Click += 行首解码ToolStripMenuItem_Click;
+            // 
+            // 列首解码ToolStripMenuItem
+            // 
+            列首解码ToolStripMenuItem.Name = "列首解码ToolStripMenuItem";
+            列首解码ToolStripMenuItem.Size = new Size(180, 22);
+            列首解码ToolStripMenuItem.Text = "列首解码";
+            列首解码ToolStripMenuItem.Click += 列首解码ToolStripMenuItem_Click;
+            // 
+            // removeToolStripMenuItem
+            // 
+            removeToolStripMenuItem.Name = "removeToolStripMenuItem";
+            removeToolStripMenuItem.Size = new Size(124, 22);
+            removeToolStripMenuItem.Text = "Remove";
+            removeToolStripMenuItem.Click += removeToolStripMenuItem_Click;
             // 
             // panel1
             // 
@@ -136,13 +167,6 @@
             panel1.Name = "panel1";
             panel1.Size = new Size(680, 425);
             panel1.TabIndex = 2;
-            // 
-            // removeToolStripMenuItem
-            // 
-            removeToolStripMenuItem.Name = "removeToolStripMenuItem";
-            removeToolStripMenuItem.Size = new Size(180, 22);
-            removeToolStripMenuItem.Text = "Remove";
-            removeToolStripMenuItem.Click += removeToolStripMenuItem_Click;
             // 
             // Form1
             // 
@@ -177,5 +201,8 @@
         private ToolStripMenuItem 差分编码ToolStripMenuItem;
         private ToolStripMenuItem 清除所有数据ToolStripMenuItem;
         private ToolStripMenuItem removeToolStripMenuItem;
+        private ToolStripMenuItem 差分解码ToolStripMenuItem;
+        private ToolStripMenuItem 行首解码ToolStripMenuItem;
+        private ToolStripMenuItem 列首解码ToolStripMenuItem;
     }
 }

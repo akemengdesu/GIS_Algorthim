@@ -328,6 +328,100 @@ namespace GIS_jia1._1
             }
         }
 
+        // 在MainController类中添加以下两个函数
+
+        /// <summary>
+        /// 执行行首差分解码
+        /// </summary>
+        public void ExecuteRowFirstDecoding()
+        {
+            RasterInfo rasterInfo = GetCurrentRasterInfo();
+            if (rasterInfo?.Dataset == null)
+            {
+                MessageBox.Show("请先选择一个数据集", "提示", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                return;
+            }
+
+            try
+            {
+                // 调用行首解码函数
+                Dataset decodedDataset = Algorthim.RowFirstDifferDecoding(rasterInfo.Dataset);
+                string methodName = "行首差分解码";
+
+                // 获取原始文件名
+                string originalFileName = Path.GetFileName(rasterInfo.FilePath);
+
+                // 创建新的RasterInfo对象
+                RasterInfo decodedRasterInfo = new RasterInfo(
+                    decodedDataset,
+                    $"{methodName}_{originalFileName}"
+                );
+
+                // 添加到数据中心和列表
+                _dataCenter.RasterInfos.Add(decodedRasterInfo);
+                _form.listBox1.Items.Add($"{methodName}: {originalFileName}");
+
+                // 更新当前显示图像
+                _currentImage = Display.TransRasterTobitmap(decodedDataset);
+                _form.panel1.Invalidate();
+
+                MessageBox.Show($"已成功应用{methodName}",
+                                "解码结果",
+                                MessageBoxButtons.OK,
+                                MessageBoxIcon.Information);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"行首差分解码失败: {ex.Message}", "错误", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        /// <summary>
+        /// 执行列首差分解码
+        /// </summary>
+        public void ExecuteColumnFirstDecoding()
+        {
+            RasterInfo rasterInfo = GetCurrentRasterInfo();
+            if (rasterInfo?.Dataset == null)
+            {
+                MessageBox.Show("请先选择一个数据集", "提示", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                return;
+            }
+
+            try
+            {
+                // 调用列首解码函数
+                Dataset decodedDataset = Algorthim.ColumnFirstDifferDecoding(rasterInfo.Dataset);
+                string methodName = "列首差分解码";
+
+                // 获取原始文件名
+                string originalFileName = Path.GetFileName(rasterInfo.FilePath);
+
+                // 创建新的RasterInfo对象
+                RasterInfo decodedRasterInfo = new RasterInfo(
+                    decodedDataset,
+                    $"{methodName}_{originalFileName}"
+                );
+
+                // 添加到数据中心和列表
+                _dataCenter.RasterInfos.Add(decodedRasterInfo);
+                _form.listBox1.Items.Add($"{methodName}: {originalFileName}");
+
+                // 更新当前显示图像
+                _currentImage = Display.TransRasterTobitmap(decodedDataset);
+                _form.panel1.Invalidate();
+
+                MessageBox.Show($"已成功应用{methodName}",
+                                "解码结果",
+                                MessageBoxButtons.OK,
+                                MessageBoxIcon.Information);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"列首差分解码失败: {ex.Message}", "错误", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
         /// <summary>
         /// 保存当前选中的 Dataset
         /// </summary>

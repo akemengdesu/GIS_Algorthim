@@ -153,5 +153,97 @@ namespace GIS_jia1._1
             return (bestDataset, bestRatio, methodName);
         }
 
+        public static Dataset RowFirstDifferDecoding(Dataset encodedDataset)
+        {
+            if (encodedDataset == null)
+            {
+                throw new ArgumentNullException(nameof(encodedDataset), "Encoded dataset cannot be null.");
+            }
+
+            int width = encodedDataset.RasterXSize;
+            int height = encodedDataset.RasterYSize;
+            int bandCount = encodedDataset.RasterCount;
+
+            Driver driver = Gdal.GetDriverByName("MEM");
+            Dataset decodedDataset = driver.Create("row_first_decoded", width, height, bandCount, DataType.GDT_Float64, null);
+
+            for (int b = 1; b <= bandCount; b++)
+            {
+                Band encodedBand = encodedDataset.GetRasterBand(b);
+                Band decodedBand = decodedDataset.GetRasterBand(b);
+                double[] encodedBuffer = new double[width * height];
+                double[] decodedBuffer = new double[width * height];
+
+                // 读取编码数据
+                encodedBand.ReadRaster(0, 0, width, height, encodedBuffer, width, height, 0, 0);
+
+                // 按行处理
+                for (int row = 0; row < height; row++)
+                {
+                    int rowStart = row * width;
+
+                    // 行首像素保持不变
+                    decodedBuffer[rowStart] = encodedBuffer[rowStart];
+
+                    // 行内其他像素加上行首像素值进行解码
+                    for (int col = 1; col < width; col++)
+                    {
+                        int pixelIndex = rowStart + col;
+                        decodedBuffer[pixelIndex] = encodedBuffer[pixelIndex] + decodedBuffer[rowStart];
+                    }
+                }
+
+                // 写入解码后的数据
+                decodedBand.WriteRaster(0, 0, width, height, decodedBuffer, width, height, 0, 0);
+            }
+
+            return decodedDataset;
+        }
+
+        public static Dataset ColumnFirstDifferDecoding(Dataset encodedDataset)
+        {
+            if (encodedDataset == null)
+            {
+                throw new ArgumentNullException(nameof(encodedDataset), "Encoded dataset cannot be null.");
+            }
+
+            int width = encodedDataset.RasterXSize;
+            int height = encodedDataset.RasterYSize;
+            int bandCount = encodedDataset.RasterCount;
+
+            Driver driver = Gdal.GetDriverByName("MEM");
+            Dataset decodedDataset = driver.Create("column_first_decoded", width, height, bandCount, DataType.GDT_Float64, null);
+
+            for (int b = 1; b <= bandCount; b++)
+            {
+                Band encodedBand = encodedDataset.GetRasterBand(b);
+                Band decodedBand = decodedDataset.GetRasterBand(b);
+                double[] encodedBuffer = new double[width * height];
+                double[] decodedBuffer = new double[width * height];
+
+                // 读取编码数据
+                encodedBand.ReadRaster(0, 0, width, height, encodedBuffer, width, height, 0, 0);
+
+                // 按列处理
+                for (int col = 0; col < width; col++)
+                {
+                    // 列首像素保持不变
+                    decodedBuffer[col] = encodedBuffer[col];
+
+                    // 列内其他像素加上列首像素值进行解码
+                    for (int row = 1; row < height; row++)
+                    {
+                        int pixelIndex = row * width + col;
+                        decodedBuffer[pixelIndex] = encodedBuffer[pixelIndex] + decodedBuffer[col];
+                    }
+                }
+
+                // 写入解码后的数据
+                decodedBand.WriteRaster(0, 0, width, height, decodedBuffer, width, height, 0, 0);
+            }
+
+            return decodedDataset;
+        }
+
     }
 }

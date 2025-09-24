@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("GIS_jia1.1")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+b5a09bc0007f04da9d5c70597bc40bb39f64520f")]
 [assembly: System.Reflection.AssemblyProductAttribute("GIS_jia1.1")]
 [assembly: System.Reflection.AssemblyTitleAttribute("GIS_jia1.1")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
