@@ -1,0 +1,40 @@
+{
+  "runtimeTarget": {
+    "name": ".NETCoreApp,Version=v8.0",
+    "signature": ""
+  },
+  "compilationOptions": {},
+  "targets": {
+    ".NETCoreApp,Version=v8.0": {
+      "GDAL/3.6.4": {
+        "runtime": {
+          "lib/netstandard2.0/gdal_csharp.dll": {
+            "assemblyVersion": "3.6.4.0",
+            "fileVersion": "3.6.4.0"
+          },
+          "lib/netstandard2.0/gdalconst_csharp.dll": {
+            "assemblyVersion": "3.6.4.0",
+            "fileVersion": "3.6.4.0"
+          },
+          "lib/netstandard2.0/ogr_csharp.dll": {
+            "assemblyVersion": "3.6.4.0",
+            "fileVersion": "3.6.4.0"
+          },
+          "lib/netstandard2.0/osr_csharp.dll": {
+            "assemblyVersion": "3.6.4.0",
+            "fileVersion": "3.6.4.0"
+          }
+        }
+      }
+    }
+  },
+  "libraries": {
+    "GDAL/3.6.4": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-nV0xJvvZ44aLTxaZv++KjlUi5skgpw9t4F65bTipWidw5yb9Lri0EyEpznof7tQsLeYB+EgEYl0ky+nkHYpcsQ==",
+      "path": "gdal/3.6.4",
+      "hashPath": "gdal.3.6.4.nupkg.sha512"
+    }
+  }
+}

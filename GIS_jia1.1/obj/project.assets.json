@@ -1,0 +1,142 @@
+{
+  "version": 3,
+  "targets": {
+    "net8.0-windows7.0": {
+      "GDAL/3.6.4": {
+        "type": "package",
+        "compile": {
+          "lib/netstandard2.0/gdal_csharp.dll": {},
+          "lib/netstandard2.0/gdalconst_csharp.dll": {},
+          "lib/netstandard2.0/ogr_csharp.dll": {},
+          "lib/netstandard2.0/osr_csharp.dll": {}
+        },
+        "runtime": {
+          "lib/netstandard2.0/gdal_csharp.dll": {},
+          "lib/netstandard2.0/gdalconst_csharp.dll": {},
+          "lib/netstandard2.0/ogr_csharp.dll": {},
+          "lib/netstandard2.0/osr_csharp.dll": {}
+        },
+        "contentFiles": {
+          "contentFiles/cs/any/GdalConfiguration.cs.pp": {
+            "buildAction": "Compile",
+            "codeLanguage": "cs",
+            "copyToOutput": false,
+            "ppOutputPath": "GdalConfiguration.cs"
+          },
+          "contentFiles/vb/any/GdalConfiguration.vb.pp": {
+            "buildAction": "Compile",
+            "codeLanguage": "vb",
+            "copyToOutput": false,
+            "ppOutputPath": "GdalConfiguration.vb"
+          }
+        }
+      }
+    }
+  },
+  "libraries": {
+    "GDAL/3.6.4": {
+      "sha512": "nV0xJvvZ44aLTxaZv++KjlUi5skgpw9t4F65bTipWidw5yb9Lri0EyEpznof7tQsLeYB+EgEYl0ky+nkHYpcsQ==",
+      "type": "package",
+      "path": "gdal/3.6.4",
+      "hasTools": true,
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "content/GdalConfiguration.cs.pp",
+        "content/GdalConfiguration.vb.pp",
+        "contentFiles/cs/any/GdalConfiguration.cs.pp",
+        "contentFiles/vb/any/GdalConfiguration.vb.pp",
+        "gdal.3.6.4.nupkg.sha512",
+        "gdal.nuspec",
+        "lib/netstandard2.0/gdal_csharp.dll",
+        "lib/netstandard2.0/gdalconst_csharp.dll",
+        "lib/netstandard2.0/ogr_csharp.dll",
+        "lib/netstandard2.0/osr_csharp.dll",
+        "tools/install.ps1"
+      ]
+    }
+  },
+  "projectFileDependencyGroups": {
+    "net8.0-windows7.0": [
+      "GDAL >= 3.6.4"
+    ]
+  },
+  "packageFolders": {
+    "C:\\Users\\戴尔\\.nuget\\packages\\": {},
+    "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages": {}
+  },
+  "project": {
+    "version": "1.0.0",
+    "restore": {
+      "projectUniqueName": "E:\\GISAlgorithm\\GIS_jia1.1\\GIS_jia1.1.csproj",
+      "projectName": "GIS_jia1.1",
+      "projectPath": "E:\\GISAlgorithm\\GIS_jia1.1\\GIS_jia1.1.csproj",
+      "packagesPath": "C:\\Users\\戴尔\\.nuget\\packages\\",
+      "outputPath": "E:\\GISAlgorithm\\GIS_jia1.1\\obj\\",
+      "projectStyle": "PackageReference",
+      "fallbackFolders": [
+        "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
+      ],
+      "configFilePaths": [
+        "C:\\Users\\戴尔\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
+        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+      ],
+      "originalTargetFrameworks": [
+        "net8.0-windows"
+      ],
+      "sources": {
+        "C:\\Program Files\\ArcGIS\\Pro\\bin": {},
+        "https://api.nuget.org/v3/index.json": {}
+      },
+      "frameworks": {
+        "net8.0-windows7.0": {
+          "targetAlias": "net8.0-windows",
+          "projectReferences": {}
+        }
+      },
+      "warningProperties": {
+        "warnAsError": [
+          "NU1605"
+        ]
+      },
+      "restoreAuditProperties": {
+        "enableAudit": "true",
+        "auditLevel": "low",
+        "auditMode": "direct"
+      },
+      "SdkAnalysisLevel": "9.0.300"
+    },
+    "frameworks": {
+      "net8.0-windows7.0": {
+        "targetAlias": "net8.0-windows",
+        "dependencies": {
+          "GDAL": {
+            "target": "Package",
+            "version": "[3.6.4, )"
+          }
+        },
+        "imports": [
+          "net461",
+          "net462",
+          "net47",
+          "net471",
+          "net472",
+          "net48",
+          "net481"
+        ],
+        "assetTargetFallback": true,
+        "warn": true,
+        "frameworkReferences": {
+          "Microsoft.NETCore.App": {
+            "privateAssets": "all"
+          },
+          "Microsoft.WindowsDesktop.App.WindowsForms": {
+            "privateAssets": "none"
+          }
+        },
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\9.0.305/PortableRuntimeIdentifierGraph.json"
+      }
+    }
+  }
+}
